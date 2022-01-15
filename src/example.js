@@ -1,7 +1,13 @@
 import { Nareact } from ".";
-//const element = <h1 title="foo">Hello</h1>
-//changed to React.creteElement by transpiler
-const element = Nareact.createElement("h1", { title: "foo" }, "Hello");
+
+//changed to Nareact.creteElement by transpiler
+/** @jsx Nareact.createElement */
+const element = (
+  <div id="foo">
+    <a>bar</a>
+    <b />
+  </div>
+);
 //result of React.createElement is simple object of certain form
 //const element = {
 //type: "h1",
