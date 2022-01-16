@@ -1,5 +1,5 @@
 import { createElement } from "./createElement";
 
-export const Nareact = {
+export const Nact = {
   createElement,
 };
