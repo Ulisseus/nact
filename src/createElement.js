@@ -1,4 +1,4 @@
-import { createTextElement } from "./createTextElement";
+import { createTextElement } from "./_utlis/createTextElement";
 
 export const createElement = (type, props, ...children) => {
   return {
