@@ -1,21 +1,24 @@
 {
-  "name": "nareact",
-  "type": "module",
-  "version": "1.0.0",
-  "description": "Naive reimplementation of react for learning purposes.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ulisseus/nareact.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Ulisseus/nareact/issues"
-  },
-  "homepage": "https://github.com/Ulisseus/nareact#readme"
+    "name": "nareact",
+    "type": "module",
+    "version": "1.0.0",
+    "description": "Naive reimplementation of react for learning purposes.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Ulisseus/nareact.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Ulisseus/nareact/issues"
+    },
+    "homepage": "https://github.com/Ulisseus/nareact#readme",
+    "devDependencies": {
+        "prettier": "2.5.1"
+    }
 }

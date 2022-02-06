@@ -1,1 +1,1 @@
-export const isProperty = (key) => key !== "children";
+export const isProperty = (key) => key !== 'children';
