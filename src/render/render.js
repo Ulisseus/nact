@@ -4,6 +4,8 @@ let nextUnitOfWork = null;
 let wipRoot = null;
 let currentRoot = null;
 let deletions = null;
+let wipFiber = null;
+let hookIndex = null;
 
 export const render = (element, container) => {
     wipRoot = {
@@ -29,12 +31,9 @@ const workLoop = (deadline) => {
 };
 
 const performUnitOfWork = (fiber) => {
-    if (!fiber.dom) {
-        fiber.dom = createDom(fiber);
-    }
-
-    const elements = fiber.props.children;
-    reconsileChildren(fiber, elements);
+    const isFunctionComponent = fiber.type instanceof Function;
+    if (isFunctionComponent) updateFunctionComponent(fiber);
+    else updateHostComponent(fiber);
 
     if (fiber.child) {
         return fiber.child;
@@ -47,6 +46,29 @@ const performUnitOfWork = (fiber) => {
         }
         nextFiber = nextFiber.parent;
     }
+};
+
+const updateFunctionComponent = (fiber) => {
+    wipFiber = fiber;
+    hookIndex = 0;
+    wipFiber.hooks = [];
+    const children = [fiber.type(fiber.props)];
+    reconsileChildren(fiber, children);
+};
+
+export const useState = (initial) => {
+    const oldHook = wipFiber?.alternate?.hooks[hookIndex];
+    const hook = { state: oldHook ? oldHook.state : initial };
+    wipFiber.hooks.push(hook);
+    hookIndex++;
+    return [hook.state];
+};
+
+const updateHostComponent = (fiber) => {
+    if (!fiber.dom) {
+        fiber.dom = createDom(fiber);
+    }
+    reconsileChildren(fiber, fiber.props.children);
 };
 
 function updateDom(dom, prevProps, nextProps) {
@@ -149,16 +171,26 @@ const commitWork = (fiber) => {
     if (!fiber) {
         return;
     }
-    const domParent = fiber.parent.dom;
+    let domParentFiber = fiber.parent;
+    while (!domParentFiber.dom) {
+        domParentFiber = domParentFiber.parent;
+    }
+    const domParent = domParentFiber.dom;
     if (fiber.effectTag === 'PLACEMENT' && fiber.dom != null) {
         domParent.appendChild(fiber.dom);
     } else if (fiber.effectTag === 'UPDATE' && fiber.dom != null) {
         updateDom(fiber.dom, fiber.alternate.props, fiber.props);
     } else if (fiber.effectTag === 'DELETION') {
-        domParent.removeChild(fiber.dom);
+        commitDeletion(fiber.child, domParent);
     }
     commitWork(fiber.child);
     commitWork(fiber.sibling);
+};
+
+const commitDeletion = (fiber, domParent) => {
+    if (fiber.dom) {
+        domParent.removeChild(fiber.dom);
+    } else commitDeletion(fiber.child, domParent);
 };
 
 //calls window request idle callback when main thread is empty
