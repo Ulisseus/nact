@@ -1,11 +1,7 @@
-const isEvent = (key: string) => key.startsWith('on');
-const isProperty = (key: string) => key !== 'children' && !isEvent(key);
-const isNew =
-    (prev: Record<string, any>, next: Record<string, any>) => (key: string) =>
-        prev[key] !== next[key];
-const isGone =
-    (prev: Record<string, any>, next: Record<string, any>) => (key: string) =>
-        !(key in next);
+import { isEvent } from "../_utils/isEvent";
+import { isProperty } from "../_utils/isProperty";
+import { isGone } from "../_utils/isGone";
+import { isNew } from "../_utils/isNew";
 
 export const updateDom = (
     dom: Node,
