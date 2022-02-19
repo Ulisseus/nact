@@ -1,1 +1,0 @@
-export const TEXT_ELEMENT_TYPE = 'TEXT_ELEMENT';
