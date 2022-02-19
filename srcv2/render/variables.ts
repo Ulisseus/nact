@@ -17,13 +17,14 @@ export let wipFiber: Fiber | null = null;
 export let hookIndex: number | null = null;
 
 const isFiberOrNull = (
-    variable: Fiber | null | number
+    variable: Fiber | null | number|number[]
 ): variable is Fiber | null => {
+    if((variable as any[]).length)return false
     return typeof variable !== 'number';
 };
 
 export const assignVariable = (
-    variable: Fiber | null | number,
+    variable: Fiber | null | number|number[],
     name: string
 ) => {
     switch (name) {
