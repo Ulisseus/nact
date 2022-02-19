@@ -2,7 +2,6 @@ import { Fiber } from './types';
 import { isFiberOrNull } from './_utils/isFiberOrNull';
 import { STATE_VARIABLES } from './types';
 
-
 export let nextUnitOfWork: Fiber | null = null;
 export let wipRoot: Fiber | null = null;
 export let currentRoot: Fiber | null = null;
@@ -10,9 +9,8 @@ export let deletions = null;
 export let wipFiber: Fiber | null = null;
 export let hookIndex: number | null = null;
 
-
 export const assignStateVariable = (
-    variable: Fiber | null | number|number[],
+    variable: Fiber | null | number | number[],
     name: string
 ) => {
     switch (name) {
