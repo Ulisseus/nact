@@ -4,6 +4,7 @@ import {
     assignVariable,
     VARIABLE_NAMES,
 } from './variables';
+import { performUnitOfWork } from './performUnitOfWork';
 import { commitRoot } from './commitRoot';
 
 export const workLoop: IdleRequestCallback = (deadline) => {

@@ -5,6 +5,8 @@ export enum VARIABLE_NAMES {
     deletions = 'deletions',
     currentRoot = 'currentRoot',
     wipRoot = 'wipRoot',
+    hookIndex = 'hookIndex',
+    wipFiber = 'wipFiber',
 }
 
 export let nextUnitOfWork: Fiber | null = null;
@@ -41,5 +43,15 @@ export const assignVariable = (
             if (isFiberOrNull(variable)) {
                 wipRoot = variable;
             }
+        case VARIABLE_NAMES.wipFiber: {
+            if (isFiberOrNull(variable)) {
+                wipFiber = variable;
+            }
+        }
+        case VARIABLE_NAMES.hookIndex: {
+            if (typeof variable === 'number') {
+                hookIndex = variable;
+            }
+        }
     }
 };
