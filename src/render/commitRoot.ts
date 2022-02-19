@@ -1,8 +1,4 @@
-import {
-    assignStateVariable,
-    deletions,
-    wipRoot,
-} from '../state';
+import { assignStateVariable, deletions, wipRoot } from '../state';
 import { updateDom } from './updateDom';
 import { Fiber, STATE_VARIABLES } from '../types';
 

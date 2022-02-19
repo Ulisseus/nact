@@ -1,8 +1,4 @@
-import {
-    nextUnitOfWork,
-    wipRoot,
-    assignStateVariable,
-} from '../state';
+import { nextUnitOfWork, wipRoot, assignStateVariable } from '../state';
 import { performUnitOfWork } from './performUnitOfWork';
 import { STATE_VARIABLES } from '../types';
 import { commitRoot } from './commitRoot';
