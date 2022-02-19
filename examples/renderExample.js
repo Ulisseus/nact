@@ -1,3 +1,5 @@
+//v 0.1
+
 const TEXT_ELEMENT_TYPE = 'TEXT_ELEMENT';
 
 const isProperty = (key) => key !== 'children';

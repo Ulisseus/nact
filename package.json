@@ -1,6 +1,5 @@
 {
-    "name": "nareact",
-    "type": "module",
+    "name": "nact",
     "version": "1.0.0",
     "description": "Naive reimplementation of react for learning purposes.",
     "main": "index.js",
