@@ -1,4 +1,4 @@
-import { Fiber } from '../types';
+import { Fiber } from './types';
 
 export enum VARIABLE_NAMES {
     nextUnitOfWork = 'nextUnitOfWork',

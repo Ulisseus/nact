@@ -3,7 +3,7 @@ import {
     wipRoot,
     assignVariable,
     VARIABLE_NAMES,
-} from './variables';
+} from '../variables';
 import { performUnitOfWork } from './performUnitOfWork';
 import { commitRoot } from './commitRoot';
 

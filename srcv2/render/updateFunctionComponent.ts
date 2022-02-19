@@ -1,5 +1,5 @@
 import { Fiber } from '../types';
-import { wipFiber, assignVariable, VARIABLE_NAMES } from './variables';
+import { wipFiber, assignVariable, VARIABLE_NAMES } from '../variables';
 import { reconsileChildren } from './recfonsileChildren';
 
 export const updateFunctionComponent = (fiber: Fiber) => {

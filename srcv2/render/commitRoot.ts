@@ -3,7 +3,7 @@ import {
     VARIABLE_NAMES,
     deletions,
     wipRoot,
-} from './variables';
+} from '../variables';
 import { updateDom } from './updateDom';
 import { Fiber } from '../types';
 

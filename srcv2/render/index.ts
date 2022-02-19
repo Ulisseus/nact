@@ -1,6 +1,6 @@
 import {  Fiber } from '../types';
 import { workLoop } from './workLoop';
-import { assignVariable, VARIABLE_NAMES, currentRoot } from './variables';
+import { assignVariable, VARIABLE_NAMES, currentRoot } from '../variables';
 
 export const render = (element:Fiber, container:Node) => {
     const wipRoot:Fiber = {

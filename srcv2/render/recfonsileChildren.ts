@@ -1,5 +1,5 @@
 import { Fiber } from '../types';
-import { deletions } from './variables';
+import { deletions } from '../variables';
 
 export const reconsileChildren = (wipFiber: Fiber, elements: Fiber[]) => {
     let index = 0;
