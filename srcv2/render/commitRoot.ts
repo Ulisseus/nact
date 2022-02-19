@@ -1,11 +1,10 @@
 import {
-    assignVariable,
-    VARIABLE_NAMES,
+    assignStateVariable,
     deletions,
     wipRoot,
-} from '../variables';
+} from '../state';
 import { updateDom } from './updateDom';
-import { Fiber } from '../types';
+import { Fiber, STATE_VARIABLES } from '../types';
 
 const commitDeletion = (fiber: Fiber, domParent: Node) => {
     if (fiber.dom) {
@@ -37,6 +36,6 @@ export const commitRoot = () => {
     deletions.forEach(commitWork);
     commitWork(wipRoot.child);
     //for reconsiliation
-    assignVariable(wipRoot, VARIABLE_NAMES.currentRoot);
-    assignVariable(null, VARIABLE_NAMES.wipRoot);
+    assignStateVariable(wipRoot, STATE_VARIABLES.currentRoot);
+    assignStateVariable(null, STATE_VARIABLES.wipRoot);
 };

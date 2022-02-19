@@ -17,3 +17,12 @@ export type Fiber = {
     hooks: any[];
     effectTag?: string;
 };
+
+export enum STATE_VARIABLES {
+    nextUnitOfWork = 'nextUnitOfWork',
+    deletions = 'deletions',
+    currentRoot = 'currentRoot',
+    wipRoot = 'wipRoot',
+    hookIndex = 'hookIndex',
+    wipFiber = 'wipFiber',
+}

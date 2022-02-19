@@ -1,6 +1,7 @@
 import {  Fiber } from '../types';
 import { workLoop } from './workLoop';
-import { assignVariable, VARIABLE_NAMES, currentRoot } from '../variables';
+import { STATE_VARIABLES } from '../types';
+import { assignStateVariable, currentRoot } from '../state';
 
 export const render = (element:Fiber, container:Node) => {
     const wipRoot:Fiber = {
@@ -16,9 +17,9 @@ export const render = (element:Fiber, container:Node) => {
         type:element.type
 
     };
-    assignVariable(wipRoot, VARIABLE_NAMES.wipRoot)
-    assignVariable([],VARIABLE_NAMES.deletions)
-    assignVariable(wipRoot, VARIABLE_NAMES.nextUnitOfWork)
+    assignStateVariable(wipRoot, STATE_VARIABLES.wipRoot)
+    assignStateVariable([],STATE_VARIABLES.deletions)
+    assignStateVariable(wipRoot, STATE_VARIABLES.nextUnitOfWork)
 };
 
 window.requestIdleCallback(workLoop);
