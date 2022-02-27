@@ -8,4 +8,15 @@ const Nact = {
     useState,
 };
 
+//todo move example into separate script
+const element = createElement(
+    'h1',
+    { nodeValue: 'Hello, world!' },
+    createElement('button', { nodeValue: 'Button that does nothing' })
+);
+
+const container = document.getElementById('root');
+
+render(element, container);
+
 export default Nact;
