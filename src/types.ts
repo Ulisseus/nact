@@ -6,6 +6,10 @@ export type Element = {
     };
 };
 
+/*
+check this video to better understand reasons behind fiber-based rendering algorithm
+https://www.youtube.com/watch?v=ZCuYPiUIONs (Lin Clark - A Cartoon Intro to Fiber - React Conf 2017)
+*/
 export type Fiber = {
     type: string | Function;
     props: Record<string, any> & { children: Fiber[] };
