@@ -1,13 +1,13 @@
-import { Fiber } from '../types';
+import { Fiber, Element } from '../types';
 import { workLoop } from './workLoop';
 import { STATE_VARIABLES } from '../types';
 import { assignStateVariable, currentRoot } from '../state';
 
-export const render = (element: Fiber, container: Node) => {
+export const render = (element: Element, container: Node) => {
     const wipRoot: Fiber = {
         dom: container,
         props: {
-            children: [element],
+            children: [],
         },
         alternate: currentRoot,
         hooks: [],
